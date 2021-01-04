@@ -301,14 +301,22 @@ export class ContractsComponent implements OnInit, OnDestroy, AfterViewInit {
   }
 
   codeSort(direction: any, a: string, b: string): number {
-    let first = +a.match(/-(\d+)\//g)[0].match(/\d+/g)[0];
-    let second = +b.match(/-(\d+)\//g)[0].match(/\d+/g)[0];
+    const first = {
+      count: +a.match(/-(\d+)\//g)[0].match(/\d+/g)[0],
+      year: +a.match(/\/(\d+)-/g)[0].match(/\d+/g)[0],
+    };
+    const second = {
+      count: +b.match(/-(\d+)\//g)[0].match(/\d+/g)[0],
+      year: +b.match(/\/(\d+)-/g)[0].match(/\d+/g)[0],
+    };
 
-    if (first < second) {
-      return -1 * direction;
-    }
-    if (first > second) {
-      return direction;
+    if (first.year < second.year) return -1 * direction;
+
+    if (first.year > second.year) return direction;
+
+    if (first.year == second.year) {
+      if (first.count < second.count) return -1 * direction;
+      else return direction;
     }
     return 0;
   }
