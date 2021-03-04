@@ -15,6 +15,7 @@ import {
   NbLayoutModule,
   NbDatepickerModule,
   NbSelectModule,
+  NbSpinnerModule,
 } from '@nebular/theme';
 import { NgxAuthComponent } from './auth.component';
 import { NgxLoginComponent } from './login/login.component';
@@ -33,6 +34,7 @@ import { SharedModule } from '../shared/shared.module';
     NbCheckboxModule,
     NbDatepickerModule,
     NbSelectModule,
+    NbSpinnerModule,
     NbLayoutModule,
     NbCardModule,
     NbIconModule,
